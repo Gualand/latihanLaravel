@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,23 @@ Route::get('/', [DashboardController::class, 'index']);
 Route::get('/inputData', [DashboardController::class, 'inputData']);
 Route::post('/kirimData', [DashboardController::class, 'kirimData']);
 Route::get('/dataTable', [DashboardController::class, 'dataTable']);
+
+// CRUD using query builder
+
+// 1. CRUD Kategori
+// - C
+Route::get('/category/create', [CategoryController::class, 'create']);
+Route::post('/category', [CategoryController::class, 'store']);
+
+// - R
+Route::get('/category', [CategoryController::class, 'index']);
+// - R, berdasarkan id detail kategory
+Route::get('/category/{kategori_id}', [CategoryController::class, 'detail']);
+
+// - U
+Route::get('/category/{kategori_id}/edit', [CategoryController::class, 'edit']);
+// - U, berdasarkan id
+Route::put('/category/{kategori_id}', [CategoryController::class, 'update']);
+
+// - D
+Route::delete('/category/{kategori_id}', [CategoryController::class, 'delete']);
