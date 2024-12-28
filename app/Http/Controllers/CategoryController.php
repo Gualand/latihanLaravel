@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -27,6 +28,7 @@ class CategoryController extends Controller
         DB::table('category')->insert([
             'categoryName' => $request->input('categoryName'),
             'categoryDescription' => $request->input('categoryDescription'),
+            'created_at' => new DateTime()
         ]);
 
         return redirect('/category');
@@ -63,7 +65,8 @@ class CategoryController extends Controller
               ->where('id', $id)
               ->update([
                 'categoryName' => $request->input('categoryName'),
-                'categoryDescription' => $request->input('categoryDescription')
+                'categoryDescription' => $request->input('categoryDescription'),
+                'updated_at' => new DateTime()
             ]);
             return redirect('/category');
     }

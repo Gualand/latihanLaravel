@@ -43,6 +43,23 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="/category" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Categories
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/post" class="nav-link">
+              <i class="nav-icon fas fa-house-chimney"></i>
+              <p>
+                Berita
+                <span class="right badge badge-danger">HOTS</span>
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
