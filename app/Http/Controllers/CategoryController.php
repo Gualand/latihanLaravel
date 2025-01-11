@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -40,7 +41,7 @@ class CategoryController extends Controller
     }
 
     public function detail($id) {
-        $detailCategory = DB::table('category')->where('id', $id)->first();
+        $detailCategory = Category::with('posts')->find($id);
 
         return view('page.category.detail', ['detailCategory' => $detailCategory]);
     }

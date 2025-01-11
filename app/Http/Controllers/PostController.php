@@ -10,6 +10,12 @@ use Symfony\Component\Console\Input\Input;
 
 class PostController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     public function index()
     {
         $post = Post::all();
